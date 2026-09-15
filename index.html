@@ -53,6 +53,11 @@ button.link{width:100%;border:1px solid rgba(255,255,255,.55);background:#fff;co
 const video = document.getElementById('inviteVideo');
 const loc = document.getElementById('locationHotspot');
 const gift = document.getElementById('giftHotspot');
+  
+  video.addEventListener('click', () => {
+  video.muted = false;
+  video.play();
+});
 
 function openLocation(){
   window.open('https://maps.app.goo.gl/QykNrA2tojQzGRBD7','_blank');
