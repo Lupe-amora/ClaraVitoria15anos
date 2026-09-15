@@ -39,6 +39,7 @@ button.link{width:100%;border:1px solid rgba(255,255,255,.55);background:#fff;co
     <button class="link" onclick="openLocation()">📍 Ver localização</button>
     <button class="link" onclick="openGift()">🎁 Sugestão de presente</button>
     <button class="link" onclick="openRsvp()">💌 Confirmar presença</button>
+    <button class="link" onclick="addToCalendar()">📅 Salvar na agenda</button>
     <div class="deadline">Confirme sua presença até <b>17/10/2026</b>.</div>
     <div class="sound">Toque no vídeo para ativar o som, se necessário.</div>
   </div>
@@ -65,7 +66,22 @@ function openLocation(){
 function openRsvp(){
   window.open('https://w.app/vamsly','_blank');
 }
-function openGift(){
+function addToCalendar(){
+  const event = {
+    title: 'Clara Vitória – 15 anos',
+    start: '20261024T200000',
+    end: '20261024T230000',
+    location: 'Sítio Novo Paraíso Verde, Av. Abílio Augusto Távora, nº 22129 - Jardim Paraíso, Nova Iguaçu'
+  };
+
+  const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent(event.title)
+    + '&dates=' + event.start + '/' + event.end
+    + '&location=' + encodeURIComponent(event.location);
+
+  window.open(url, '_blank');
+}
+  function openGift(){
   document.getElementById('modal').classList.add('show');
 }
 function closeGift(){
